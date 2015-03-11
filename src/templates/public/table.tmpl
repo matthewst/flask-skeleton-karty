@@ -1,0 +1,37 @@
+{% extends "shared/layout.tmpl" %}
+
+{% block content %}
+{% block body %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+  var $table = $('#table-body');
+  $(function() {
+    $("#submitBtn").click(function() {
+         $.ajax({
+            type: "GET",
+            url: "/_status",
+            contentType: "application/json; charset=utf-8",
+            success: function(data) {
+                     data = JSON.parse(data);
+                     $table.empty(); // empty is more explicit
+                     // iterate over the data
+                     data.forEach(function (buses) {
+                     // create a new table row and append it
+                     var $row = $('<tr>').appendTo($table);
+                     // iterate over the buses
+                     buses.forEach(function (bus) {
+                            // create the cell, set the text,
+                            // and append it to the row
+                            $('<td>').text(bus).appendTo($row);
+                     });
+                });
+            }});
+        });
+    });
+
+</script>
+<button id=submitBtn >Submit</button>
+<strong><table id='#table-body'></table></strong>
+
+{% endblock %}
+{% endblock %}

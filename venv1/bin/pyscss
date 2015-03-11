@@ -1,4 +1,4 @@
-#!/home/student/Dokumenty/Machura/flask-skeleton/venv1/bin/python
+#!/home/student/Hudba/matthew/flask-skeleton/flask-skeleton-master/venv1/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'pyScss==1.2.0','console_scripts','pyscss'
 __requires__ = 'pyScss==1.2.0'
 import sys
